@@ -38,5 +38,5 @@ export default auth((req) => {
 })
 
 export const config = {
-  matcher: ["/dashboard", "/dashboard/:path*", "/login"],
+  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
 }
