@@ -7,13 +7,13 @@ export default auth((req) => {
   const isAuthPage = nextUrl.pathname.startsWith("/login")
 
   if (isAuthPage) {
-    if (isLoggedIn) {
+    if (isLoggedIn && nextUrl.pathname !== "/dashboard") {
       return NextResponse.redirect(new URL("/dashboard", nextUrl))
     }
     return null
   }
 
-  if (!isLoggedIn) {
+  if (!isLoggedIn && nextUrl.pathname !== "/login") {
     return NextResponse.redirect(new URL("/login", nextUrl))
   }
 
@@ -26,12 +26,16 @@ export default auth((req) => {
      nextUrl.pathname === "/dashboard") && 
     role !== "admin"
   ) {
-    return NextResponse.redirect(new URL("/dashboard/client", nextUrl))
+    if (nextUrl.pathname !== "/dashboard/client") {
+      return NextResponse.redirect(new URL("/dashboard/client", nextUrl))
+    }
   }
 
   // RBAC: Prevent admin from accidentally landing on client portal
   if ((nextUrl.pathname === "/dashboard/client" || nextUrl.pathname.startsWith("/dashboard/client/")) && role === "admin") {
-    return NextResponse.redirect(new URL("/dashboard", nextUrl))
+    if (nextUrl.pathname !== "/dashboard") {
+      return NextResponse.redirect(new URL("/dashboard", nextUrl))
+    }
   }
 
   return null
