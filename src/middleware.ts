@@ -38,5 +38,5 @@ export default auth((req) => {
 })
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login"],
+  matcher: ["/dashboard", "/dashboard/:path*", "/login"],
 }
