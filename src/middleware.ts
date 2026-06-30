@@ -30,7 +30,7 @@ export default auth((req) => {
   }
 
   // RBAC: Prevent admin from accidentally landing on client portal
-  if (nextUrl.pathname.startsWith("/dashboard/client") && role === "admin") {
+  if ((nextUrl.pathname === "/dashboard/client" || nextUrl.pathname.startsWith("/dashboard/client/")) && role === "admin") {
     return NextResponse.redirect(new URL("/dashboard", nextUrl))
   }
 
