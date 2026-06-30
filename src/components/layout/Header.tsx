@@ -23,8 +23,9 @@ export function Header() {
           <Bell size={16} />
           <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-red-500 border-2 border-background"></span>
         </button>
-        <div className="h-8 w-8 rounded-full bg-foreground flex items-center justify-center overflow-hidden border border-border shadow-sm">
-          <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix" alt="User" className="h-full w-full object-cover bg-white" />
+        <div className="h-9 w-9 rounded-full overflow-hidden border border-border shadow-sm">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://i.pravatar.cc/150?u=strata" alt="User Avatar" className="w-full h-full object-cover" />
         </div>
       </div>
     </header>

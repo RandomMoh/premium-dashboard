@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LogOut, LayoutDashboard, Users, Settings, ArrowUpRight, Receipt, Activity } from "lucide-react"
+import { LogOut, LayoutDashboard, Users, Settings, ArrowUpRight, Receipt } from "lucide-react"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { signOut } from "next-auth/react"

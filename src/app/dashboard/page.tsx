@@ -21,6 +21,7 @@ export default function DashboardOverview() {
 
   // Ensure theme is loaded before rendering chart colors
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
